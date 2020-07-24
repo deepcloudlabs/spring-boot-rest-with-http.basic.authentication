@@ -11,6 +11,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import com.payday.provider.LdapAuthenticationProvider;
 import com.payday.repository.UserRepository;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
@@ -18,7 +23,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		System.err.println("WebSecurityConfig::configure");
 		http.httpBasic().and().authorizeRequests().antMatchers(HttpMethod.GET, "/lottery/error/**").permitAll()
 				.antMatchers(HttpMethod.GET, "/lottery/error/**").anonymous().antMatchers(HttpMethod.GET, "/error/**")
 				.anonymous().antMatchers(HttpMethod.GET, "/lottery/numbers/**").authenticated();

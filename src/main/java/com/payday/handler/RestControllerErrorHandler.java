@@ -1,6 +1,5 @@
 package com.payday.handler;
 
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.validation.ConstraintViolation;
@@ -15,6 +14,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @RestControllerAdvice
 @ControllerAdvice
 public class RestControllerErrorHandler {
@@ -22,7 +26,7 @@ public class RestControllerErrorHandler {
 	@ExceptionHandler(value = ConstraintViolationException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public String handleValidationException(ConstraintViolationException ex) {
-		Set<ConstraintViolation<?>> violations = ex.getConstraintViolations();
+		var violations = ex.getConstraintViolations();
 		return violations.stream().map(ConstraintViolation::getMessage).collect(Collectors.joining("|"));
 	}
 

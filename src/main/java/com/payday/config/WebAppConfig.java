@@ -9,20 +9,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Configuration
 public class WebAppConfig implements WebMvcConfigurer {
 
-@Override
-public void addViewControllers(ViewControllerRegistry registry) {
-    registry.addViewController("/lottery/error").setViewName("error");
-}
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/lottery/error").setViewName("error");
+	}
 
-
-@Bean
-public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> containerCustomizer() {
-    return container -> {
-        container.addErrorPages(new ErrorPage(HttpStatus.UNAUTHORIZED,  "/lottery/error"));
-    };
-  }
+	@Bean
+	public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> containerCustomizer() {
+		return container -> {
+			container.addErrorPages(new ErrorPage(HttpStatus.UNAUTHORIZED, "/lottery/error"));
+		};
+	}
 
 }

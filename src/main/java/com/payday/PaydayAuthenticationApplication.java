@@ -8,6 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.payday.repository.UserRepository;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @SpringBootApplication
 public class PaydayAuthenticationApplication implements ApplicationRunner {
 

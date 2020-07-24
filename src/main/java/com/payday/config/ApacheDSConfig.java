@@ -6,6 +6,11 @@ import org.springframework.data.ldap.repository.config.EnableLdapRepositories;
 import org.springframework.ldap.core.ContextSource;
 import org.springframework.ldap.core.LdapTemplate;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Configuration
 @EnableLdapRepositories(basePackages = "com.payday.repository.**")
 public class ApacheDSConfig {

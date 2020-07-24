@@ -7,7 +7,13 @@ import org.springframework.data.ldap.repository.LdapRepository;
 
 import com.payday.domain.User;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 public interface UserRepository extends LdapRepository<User> {
 	Optional<User> findByUsername(String username);
-    List<User> findByUsernameLikeIgnoreCase(String username);
+
+	List<User> findByUsernameLikeIgnoreCase(String username);
 }

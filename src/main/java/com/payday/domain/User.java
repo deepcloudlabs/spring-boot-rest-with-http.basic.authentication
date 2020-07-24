@@ -9,6 +9,11 @@ import org.springframework.ldap.odm.annotations.DnAttribute;
 import org.springframework.ldap.odm.annotations.Entry;
 import org.springframework.ldap.odm.annotations.Id;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Entry(base = "ou=people", objectClasses = { "person", "inetOrgPerson", "top" })
 public class User {
 	@Id
@@ -16,10 +21,10 @@ public class User {
 
 	private @Attribute(name = "uid") String username;
 	private @Attribute(name = "cn") String fullname;
-	private @Attribute(name = "userPassword",type = Attribute.Type.BINARY) byte[] password;
-	@DnAttribute(value="ou", index=0)
+	private @Attribute(name = "userPassword", type = Attribute.Type.BINARY) byte[] password;
+	@DnAttribute(value = "ou", index = 0)
 	private String department;
-	   
+
 	public Name getId() {
 		return id;
 	}
@@ -41,7 +46,7 @@ public class User {
 	}
 
 	public void setPassword(String password) {
-	    this.password = password.getBytes(Charset.forName("UTF-8"));
+		this.password = password.getBytes(Charset.forName("UTF-8"));
 	}
 
 	public String getFullname() {
@@ -66,8 +71,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", fullname=" + fullname + ", password=" + new String(password)
-				+ ", department= " + department + " ]";
+		return "User [id=" + id + ", username=" + username + ", fullname=" + fullname + ", password="
+				+ new String(password) + ", department= " + department + " ]";
 	}
 
 }
