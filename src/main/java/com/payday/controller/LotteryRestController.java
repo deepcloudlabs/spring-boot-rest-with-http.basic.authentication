@@ -21,6 +21,7 @@ import org.springframework.web.context.annotation.RequestScope;
 @CrossOrigin
 public class LotteryRestController {
 
+	// curl -i  -v localhost:8001/api/v1/lottery/numbers -u jack:secret_123
 	// http://localhost:8001/api/v1/lottery/numbers
 	@GetMapping
 	public List<Integer> getNumbers() {

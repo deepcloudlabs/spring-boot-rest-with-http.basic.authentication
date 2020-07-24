@@ -13,6 +13,7 @@ import com.payday.repository.UserRepository;
  * @author Binnur Kurt <binnur.kurt@gmail.com>
  *
  */
+// curl -i  -v localhost:8001/api/v1/lottery/numbers -u jack:secret_123
 @SpringBootApplication
 public class PaydayAuthenticationApplication implements ApplicationRunner {
 
